@@ -21,3 +21,8 @@ In this section, we have simple [MiniZinc](https://www.minizinc.org/) models.
 The [vmCostsCalculation](/demo/graphs-n-minizinc-demo/vmCostsCalculation.mzn) MiniZinc model tries to minimize the total price of a set of VMs. It takes the existing VM sizes, and then tries to pick the corresponding Azure side from the list provides, which is close enough to the source VM. Additionally, the model tries to minimize the cost of the whole set of the target Azure VMs.
 
 The [estimateKubernetesClusterCosts](/demo/graphs-n-minizinc-demo/estimateKubernetesClusterCosts.mzn) MiniZinc model tries to make a high-level estimation and tries to minimize costs of an N-node cluster, taking into consideration the max CPU, RAM, and overall load of a set of applications. If the model returns `=====UNSATISFIABLE=====`, it most likely means that the cluster is either too small and cannot fit the load, or it is too big so some nodes are empty or underloaded.
+
+I'd recommend taking the following courses on MiniZinc:
+
+[Basic Modeling for Discrete Optimization](https://www.coursera.org/learn/basic-modeling)
+[Advanced Modeling for Discrete Optimization](https://www.coursera.org/learn/advanced-modeling)
