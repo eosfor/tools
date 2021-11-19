@@ -24,5 +24,5 @@ The [estimateKubernetesClusterCosts](/demo/graphs-n-minizinc-demo/estimateKubern
 
 I'd recommend taking the following courses on MiniZinc:
 
-[Basic Modeling for Discrete Optimization](https://www.coursera.org/learn/basic-modeling)
-[Advanced Modeling for Discrete Optimization](https://www.coursera.org/learn/advanced-modeling)
+- [Basic Modeling for Discrete Optimization](https://www.coursera.org/learn/basic-modeling)
+- [Advanced Modeling for Discrete Optimization](https://www.coursera.org/learn/advanced-modeling)
