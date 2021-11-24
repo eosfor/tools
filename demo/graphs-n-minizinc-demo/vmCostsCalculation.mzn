@@ -36,7 +36,7 @@ constraint forall(vm in existingVMs)(
 
 var int: totalPrice = sum(vm in existingVMs)(vmSizePrice[selectedSize[vm]]);
 var int: totalACU = sum(vm in existingVMs)( vmSizeACU[selectedSize[vm]] );
-var float: targetFunc = totalPrice * (1 / totalACU);
+var float: targetFunc = totalPrice / totalACU;
 
 solve maximize targetFunc;
 
