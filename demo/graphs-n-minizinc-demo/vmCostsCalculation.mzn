@@ -10,7 +10,7 @@ array[existingVMs] of int: vmCpuToRamRatio;
 
 array[vmSizes] of int: vmSizeCPU;
 array[vmSizes] of float: vmSizeRAM;
-array[vmSizes] of int: vmSizePrice;
+array[vmSizes] of float: vmSizePrice;
 array[vmSizes] of int: vmSizeACU;
 array[vmSizes] of int: vmSizeCpuToRamRatio;
 
@@ -34,11 +34,12 @@ constraint forall(vm in existingVMs)(
    vmSizeCPU[selectedSize[vm]] >=  vmCPU[vm] * 0.8
 );
 
-var int: totalPrice = sum(vm in existingVMs)(vmSizePrice[selectedSize[vm]]);
-var int: totalACU = sum(vm in existingVMs)( vmSizeACU[selectedSize[vm]] );
-var float: targetFunc = totalPrice / totalACU;
 
-solve maximize targetFunc;
+var float: totalPrice = sum(vm in existingVMs)(vmSizePrice[selectedSize[vm]]);
+var int: totalACU = sum(vm in existingVMs)( vmSizeACU[selectedSize[vm]] );
+var float: targetFunc = (0.9 * totalPrice) / (0.1 * totalACU);
+
+solve minimize totalPrice;
 
 output [ "\(totalPrice); \(totalACU)\n" ++ join("\n", ["\(vm), \(vmCPU[vm]), \(vmRAM[vm]), " ++ 
                                            "\(vmDisk[vm]), \(selectedSize[vm]), \(vmSizeCPU[selectedSize[vm]]), " ++ 
